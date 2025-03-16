@@ -12,16 +12,34 @@ const ramens = [
     ramens.forEach(ramen => {
       let img = document.createElement("img");
       img.className="Top-Images"
+
+      img.addEventListener("click", () => {
+        //alert(`You clicked on: ${ramen.name} from ${ramen.restaurant}`);
+        document.querySelector("#ramenName").innerHTML=ramen.name
+        document.querySelector("#Resturant").innerHTML=ramen.restaurant
+        document.querySelector("#Rating").innerHTML=`Rating:${ramen.rating}`
+        document.querySelector("#Comment").innerHTML=`Comment:${ramen.comment}`
+
+
+    });
       if (ramen.image) {
         img.src = ramen.image;
+        img.id=ramen.id
       } else {
         img.src = "default.jpg";
       }
+
       img.alt = ramen.name;
       topImage.appendChild(img);
+      console.log(img.id);
     });
   }
+
+
+
 displayRamens();
+
+
 //console.log(displayRamens());
 
 console.log(ramens);
