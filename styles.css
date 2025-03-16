@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+}
+.top-bar{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+#ramen-menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#ramen-menu img{
+width:100px;
+height:100px;
+padding:1px;
+}
