@@ -8,8 +8,8 @@ const ramens = [
 
  ramenArray=[...ramens]
  function displayRamens() {
+    document.querySelector("#ramen-menu-images").innerHTML="";
     let topImage = document.querySelector("#ramen-menu-images");
-
     ramenArray.forEach(ramen => {
       let img = document.createElement("img");
       img.className="Top-Images"
@@ -41,14 +41,15 @@ document.addEventListener("submit",()=>{
    let newRamen={}
     newRamen.id=ramenArray.length+1,
     newRamen.name=document.querySelector("#formName").value
-    newRamen.resturant=document.querySelector("#formResturant").value
-    newRamen.image=document.querySelector("#formName").value
+    newRamen.restaurant=document.querySelector("#formResturant").value
+    newRamen.image=document.querySelector("#formImage").value
     newRamen.rating=document.querySelector("#formRating").value
     newRamen.comment=document.querySelector("#formComment").value
-console.log(newRamen);
-console.log([...ramenArray,newRamen])
-
+//console.log(newRamen);
+//console.log([...ramenArray,newRamen])
 ramenArray=[...ramenArray,newRamen]
+console.log(ramenArray)
+displayRamens();
 })
 
 

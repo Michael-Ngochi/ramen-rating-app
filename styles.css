@@ -16,8 +16,12 @@
 #ramen-menu img{
 width:100px;
 height:100px;
-padding:1px;
+padding:1.5px;
 object-fit: cover;
+}
+#ramen-menu img:hover{
+scale:1.05;
+cursor: pointer;
 }
 #featured{
     position: relative;
