@@ -7,25 +7,29 @@
     text-align: center;
 }
 #ramen-menu{
+    display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
 #ramen-menu img{
 width:100px;
 height:100px;
 padding:1px;
+object-fit: cover;
 }
 #featured{
-position:relative;
-width:500px;
-height: 500px;
-background-image:url(naruto.jpg);
-background-repeat: no-repeat;
-background-position: center;
-background-size:100%;
-display: flex;
-align-items: flex-end;
-justify-content: flex-start;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-image: url(empty.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 #featured-text {
@@ -51,4 +55,24 @@ justify-content: flex-start;
 #ramen-detail h2{
 background-color: unset;
 color: black;
+}
+.rateArea{
+    display:flex;
+    flex-direction: column;
+    width:300px;
+    align-items: center;
+    justify-content: center;
+}
+#rateForm{
+    display: flex;
+    flex-direction:column;
+}
+#rateForm input,
+#rateForm textarea{
+padding-top:3px;
+}
+.new-ramen{
+    text-align: center;
+    color: white;
+    background-color: black;
 }

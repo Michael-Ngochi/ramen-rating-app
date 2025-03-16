@@ -6,10 +6,11 @@ const ramens = [
     { id: 3, name: "Tonkotsu Ramen", restaurant: "Ramen-ya", image: "tonkotsu.jpg" }
  ];
 
+ ramenArray=[...ramens]
  function displayRamens() {
-    let topImage = document.querySelector("#ramen-menu");
+    let topImage = document.querySelector("#ramen-menu-images");
 
-    ramens.forEach(ramen => {
+    ramenArray.forEach(ramen => {
       let img = document.createElement("img");
       img.className="Top-Images"
 
@@ -19,8 +20,7 @@ const ramens = [
         document.querySelector("#Resturant").innerHTML=ramen.restaurant
         document.querySelector("#Rating").innerHTML=`Rating:${ramen.rating}`
         document.querySelector("#Comment").innerHTML=`Comment:${ramen.comment}`
-
-
+        document.querySelector("#featured").style.backgroundImage= `url(${ramen.image})`
     });
       if (ramen.image) {
         img.src = ramen.image;
@@ -34,6 +34,22 @@ const ramens = [
       console.log(img.id);
     });
   }
+
+document.addEventListener("submit",()=>{
+   event.preventDefault();
+   //alert(ramens.length+1);
+   let newRamen={}
+    newRamen.id=ramenArray.length+1,
+    newRamen.name=document.querySelector("#formName").value
+    newRamen.resturant=document.querySelector("#formResturant").value
+    newRamen.image=document.querySelector("#formName").value
+    newRamen.rating=document.querySelector("#formRating").value
+    newRamen.comment=document.querySelector("#formComment").value
+console.log(newRamen);
+console.log([...ramenArray,newRamen])
+
+ramenArray=[...ramenArray,newRamen]
+})
 
 
 

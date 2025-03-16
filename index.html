@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
@@ -11,6 +11,7 @@
         <h1>Ramen Rater</h1>
     </div>
     <div id="ramen-menu">
+        <div id="ramen-menu-images"></div>
         <div id="featured">
             <div id="featured-text">
             <h1 id="ramenName">Ramen name</h1>
@@ -22,6 +23,21 @@
         <h2 id="Comment">Comment:</h2>
         </div>
     </div>
+
+<div class="rateArea">
+<p class="new-ramen"> Add new ramen </p>
+    <form action="submit" id="rateForm">
+        <label for="">Name</label>
+        <input type="text" id="formName">
+        <label for="">Resturant</label>
+        <input type="text" id="formResturant">
+        <label for="">Rating</label>
+        <input type="number" id="formRating">
+        <label for="">comment</label>
+        <textarea name="" id="formComment"></textarea>
+        <input style="color: white; background-color: black;" type="submit" value="create">
+    </form>
+</div>
 </body>
 <script src="./index.js"></script>
 </html>
