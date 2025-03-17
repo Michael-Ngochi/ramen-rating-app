@@ -56,8 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  ramenArray = [...ramens];
-  let currentramen;
+  ramenArray = [...ramens]; //main array for displaying
+  let currentramen; //traking current ramen
+
+  //function to display to UI
   function displayRamens() {
     document.querySelector("#ramen-menu-images").innerHTML = "";
     document.querySelector(
@@ -114,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+//function to add a new ramen object
   function addSubmitListener() {
     document.addEventListener("submit", () => {
       event.preventDefault();
@@ -132,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+//function to remove current ramen object
   deletebtn.addEventListener("click", () => {
     if (currentramen) {
       if (window.confirm(`Are you sure you want to delete ${currentramen.name}?`)) {
@@ -151,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("formRating").value=currentramen.rating
       document.getElementById("formComment").value=currentramen.comment
       document.getElementsByClassName("new-ramen").innerHTML="Edit this ramen"
-
+// function to hide submit button and show edit button
       function switchtoedit(){
       document.getElementById("submitbtn").style.display="none";
       document.getElementById("submit-edit-btn").style.display="block";
@@ -181,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
    else alert ("You have not selected a Ramen");
   });
 
+  //function to hide edit button, show submit button and reset the form fields
   function switchtoCreatenew(){
     document.getElementById("submitbtn").style.display="block";
     document.getElementById("submit-edit-btn").style.display="none";
