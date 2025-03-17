@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       id: 6,
       name: "Tantanmen",
       restaurant: "Afuri",
-      image: "",
+      image: "https://img.freepik.com/free-photo/delicious-ramen-dark-surface_1150-41971.jpg?t=st=1742242207~exp=1742245807~hmac=ec7cff413e24e9399f551f1e9e2be8d87906e4f9c63b162208e92eeb6d1a26fc&w=996",
       rating: 4,
       comment: "Nutty and flavorful!",
     },
@@ -60,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentramen;
   function displayRamens() {
     document.querySelector("#ramen-menu-images").innerHTML = "";
+    document.querySelector(
+      "#featured"
+    ).style.backgroundImage = `url(holder.png)`;
     let topImage = document.querySelector("#ramen-menu-images");
     ramenArray.forEach((ramen) => {
       let img = document.createElement("img");
@@ -69,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
       let editbtn = document.querySelector("#editbtn");
 
       img.addEventListener("click", () => {
+        switchtoCreatenew();
         document.querySelector(
           "#featured"
         ).style.backgroundImage = `url(holder.png)`;
@@ -79,14 +83,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ramen.rating) {
           document.querySelector(
             "#Rating"
-          ).innerHTML = `Rating:<br>${ramen.rating}/5`;
+          ).innerHTML = `Rating<br>${ramen.rating}/5`;
         } else {
           document.querySelector("#Rating").innerHTML = `Rating not available`;
         }
         if (ramen.comment) {
           document.querySelector(
             "#Comment"
-          ).innerHTML = `Comment:<br>${ramen.comment}`;
+          ).innerHTML = `Comment<br>${ramen.comment}`;
         } else {
           document.querySelector(
             "#Comment"
@@ -106,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       img.alt = ramen.name;
       topImage.appendChild(img);
-      console.log(img.id);
+      //console.log(img.id);
     });
   }
 
@@ -120,25 +124,68 @@ document.addEventListener("DOMContentLoaded", () => {
       newRamen.image = document.querySelector("#formImage").value;
       newRamen.rating = document.querySelector("#formRating").value;
       newRamen.comment = document.querySelector("#formComment").value;
-      //console.log(newRamen);
-      //console.log([...ramenArray,newRamen])
+      
       ramenArray = [...ramenArray, newRamen];
       console.log(ramenArray);
+      document.getElementById("rateForm").reset();
       displayRamens();
     });
   }
 
   deletebtn.addEventListener("click", () => {
     if (currentramen) {
-      if (window.confirm(`Are you sure you want to delete this?`)) {
+      if (window.confirm(`Are you sure you want to delete ${currentramen.name}?`)) {
         ramenArray = ramenArray.filter((ramen) => ramen.id !== currentramen.id);
         displayRamens();
+        document.getElementById("rateForm").reset();
       }
     } else alert("You have not selected a ramen");
     displayRamens();
   });
 
-  editbtn.addEventListener("click", () => {});
+  editbtn.addEventListener("click", () => {
+    if(currentramen){
+      document.getElementById("formName").value=currentramen.name
+      document.getElementById("formResturant").value=currentramen.restaurant
+      document.getElementById("formImage").value=currentramen.image
+      document.getElementById("formRating").value=currentramen.rating
+      document.getElementById("formComment").value=currentramen.comment
+      document.getElementsByClassName("new-ramen").innerHTML="Edit this ramen"
+
+      function switchtoedit(){
+      document.getElementById("submitbtn").style.display="none";
+      document.getElementById("submit-edit-btn").style.display="block";
+      }
+
+
+      for(let ramen of ramenArray){
+        if (ramen.id===currentramen.id){
+          switchtoedit();
+          let sumbitChange=document.querySelector("#submit-edit-btn")
+           //console.log(ramen)
+          sumbitChange.addEventListener("click",()=>{
+            event.preventDefault();
+            ramen.name=document.querySelector("#formName").value;
+            ramen.restaurant=document.querySelector("#formResturant").value;
+            ramen.image=document.querySelector("#formImage").value;
+            ramen.rating=document.querySelector("#formRating").value;
+            ramen.comment=document.querySelector("#formComment").value;
+            switchtoCreatenew();
+            displayRamens();
+          })
+
+        }
+        console.log(ramen)
+      }
+   console.log(currentramen.name)}
+   else alert ("You have not selected a Ramen");
+  });
+
+  function switchtoCreatenew(){
+    document.getElementById("submitbtn").style.display="block";
+    document.getElementById("submit-edit-btn").style.display="none";
+    document.getElementById("rateForm").reset();
+    }
 
   function main() {
     displayRamens();

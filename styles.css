@@ -12,6 +12,7 @@ body{
     text-align: center;
 }
 #ramen-menu{
+    padding-top:10px;
      display: flex;
     /*flex-direction: column; */
     align-items: center;
@@ -28,11 +29,12 @@ justify-content: center;
 #ramen-menu-images img{
 width:100px;
 height:100px;
-padding:1.5px;
+margin:2px;
 object-fit: cover;
 border-radius:10px;
+border: solid 2px rgb(80, 0, 0);
 }
-#ramen-menu img:hover{
+#ramen-menu-images img:hover{
 scale:1.05;
 cursor: pointer;
 }
@@ -47,14 +49,20 @@ cursor: pointer;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    border-radius:40px;
+    box-shadow: 10px 10px 8px 10px rgba(0, 0, 0, 0.3);
+    border: solid 8px rgb(63, 1, 6);
 }
 .deletebtn{
     position: absolute;
     top:6px;
-    right:2px;
-    background-color: red;
+    right:15px;
+    background-color: rgba(250, 6, 6, 0.6);
     color: white;
     border-radius: 5px;
+    border:none;
+    width:80px;
+    height:40px;
 }
 .deletebtn:hover{
     cursor: pointer;
@@ -62,10 +70,13 @@ cursor: pointer;
 .editbtn{
     position: absolute;
     top:6px;
-    left:2px;
-    background-color: blue;
+    left:15px;
+    background-color: rgba(44, 24, 221, 0.6);
     color: white;
     border-radius: 5px;
+    border:none;
+    width:80px;
+    height:40px;
 }
 .editbtn{
 cursor: pointer;
@@ -79,17 +90,19 @@ cursor: pointer;
     color: white;
     background: rgba(0, 0, 0, 0.6);
     padding: 5px 10px;
-    font-family: Arial, sans-serif;
 }
 
 #featured h1 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 #featured h2 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
+}
+#ramen-detail{
+    text-align: center;
 }
 #ramen-detail h2{
 background-color: unset;
@@ -107,7 +120,8 @@ color: black;
     color: white;
     width:400px;
     padding: 5px;
-    background:rgba(0, 0, 0, 0.6);
+    box-shadow: 10px 10px 8px 10px rgba(0, 0, 0, 0.3);
+    background:rgba(182, 137, 13, 0.6);
     display: flex;
     flex-direction:column;
     border-bottom-right-radius:8px;
@@ -119,12 +133,37 @@ color: black;
 padding-top:3px;
 border-radius:8px;
 height:25px;
+border: none;
 }
 .new-ramen{
     text-align: center;
     color: white;
+    border-top-right-radius:8px;
+    border-top-left-radius:8px;
     background-color: black;
+    font-size:20px;
 }
+#submitbtn{
+    padding-top: 10px;
+    color: white; 
+    margin-top: 10px;
+    background-color: black;
+    font-weight: bold;
+    font-size:16px;
+}
+#submit-edit-btn{
+    padding-top: 10px;
+    color: white; 
+    margin-top: 10px;
+    background-color: rgba(44, 24, 221, 0.6);
+    font-weight: bold;
+    font-size:16px;
+    border-radius: 8px;
+    border: none;
+    display:none;
+}
+
+
 @media screen and (max-width:800px) {
     #ramen-menu{
         flex-direction: column;

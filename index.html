@@ -13,36 +13,37 @@
     <div id="ramen-menu-images"></div>
     <div id="ramen-menu">
       <div id="featured">
-        <button class="deletebtn" id="deletebtn">Delete</button>
-        <button class="editbtn" id="editbtn">Edit</button>
+        <button class="deletebtn" id="deletebtn"><h2>Delete</h2></button>
+        <button class="editbtn" id="editbtn"><h2>Edit</h2></button>
         <div id="featured-text">
           <h1 id="ramenName">Ramen name</h1>
           <h2 id="Resturant">Resturant</h2>
         </div>
       </div>
       <div id="ramen-detail">
-        <h2 id="Rating">Rating:</h2>
-        <h2 id="Comment">Comment:</h2>
+        <h2 id="Rating">Rating</h2>
+        <h2 id="Comment">Comment</h2>
       </div>
 
       <div class="rateArea">
         <p class="new-ramen">Add new ramen</p>
         <form action="submit" id="rateForm">
-          <label for="">Name</label>
+          <label for="formName">Name</label>
           <input type="text" id="formName" />
-          <label for="">Resturant</label>
+          <label for="formResturant">Resturant</label>
           <input type="text" id="formResturant" />
-          <label for="">Image</label>
+          <label for="formImage">Image</label>
           <input type="text" id="formImage" />
-          <label for="">Rating</label>
-          <input type="number" id="formRating" />
-          <label for="">comment</label>
+          <label for="formRating">Rating</label>
+          <input type="number" id="formRating" min="1" max="5" />
+          <label for="formComment">comment</label>
           <textarea name="" id="formComment"></textarea>
           <input
-            style="color: white; background-color: black"
+          id="submitbtn"
             type="submit"
             value="create"
           />
+         <button id="submit-edit-btn">Update</button>
         </form>
       </div>
     </div>
