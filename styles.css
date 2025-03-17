@@ -1,24 +1,36 @@
 *{
     margin: 0;
 }
+body{
+    background-image: url(cloth.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+}
 .top-bar{
     background-color: black;
     color: white;
     text-align: center;
 }
 #ramen-menu{
-    display: flex;
+     display: flex;
+    /*flex-direction: column; */
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    /* text-align: center; */
 }
-#ramen-menu img{
+#ramen-menu-images{
+display: flex;
+flex-direction:row;
+align-items: center;
+justify-content: center;
+}
+#ramen-menu-images img{
 width:100px;
 height:100px;
 padding:1.5px;
 object-fit: cover;
-border-radius:10px;;
+border-radius:10px;
 }
 #ramen-menu img:hover{
 scale:1.05;
@@ -26,8 +38,8 @@ cursor: pointer;
 }
 #featured{
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     background-image: url(holder.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -35,6 +47,28 @@ cursor: pointer;
     display: flex;
     align-items: flex-end;
     justify-content: center;
+}
+.deletebtn{
+    position: absolute;
+    top:6px;
+    right:2px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+.deletebtn:hover{
+    cursor: pointer;
+}
+.editbtn{
+    position: absolute;
+    top:6px;
+    left:2px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+.editbtn{
+cursor: pointer;
 }
 
 #featured-text {
@@ -65,20 +99,34 @@ color: black;
     display:flex;
     flex-direction: column;
     width:auto;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     padding:3px;
 }
 #rateForm{
+    color: white;
+    width:400px;
+    padding: 5px;
+    background:rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction:column;
+    border-bottom-right-radius:8px;
+    border-bottom-left-radius:8px;
 }
+
 #rateForm input,
 #rateForm textarea{
 padding-top:3px;
+border-radius:8px;
+height:25px;
 }
 .new-ramen{
     text-align: center;
     color: white;
     background-color: black;
 }
+@media screen and (max-width:800px) {
+    #ramen-menu{
+        flex-direction: column;
+    }
+  }
